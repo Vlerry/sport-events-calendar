@@ -10,24 +10,117 @@
 </head>
 
 <body>
-    <table class="events-table" id="table" >
-        <thead>
-            <tr>
-                <th>Season</th>
-                <th>Date</th>
-                <th>Event</th>
-                <th>Teams</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody id="tbody">
-            
-        </tbody>
-    </table>
+    <nav class="navbar">
+
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a href="#table-container">All Events</a></li>
+                <li><a href="#add-new-event">Add a new Event</a></li>
+            </div>
+        </ul>
+    </nav>
+
+
+    <div id="table-container">
+        <table class="events-table" id="table">
+            <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Date</th>
+                    <th>Event</th>
+                    <th>Teams</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+    <div id="details-container">
+        <div class="back-drop"> </div>
+        <div id="content"></div>
+    </div>
+
+
+    <div id="add-new-event">
+
+        <h2>Add a new event:</h2>
+        <form action="" id="add-event-form" >
+            <div>
+                <label for="origin-competition-name">Competition Name:</label>
+                <input type="text" name="origin-competition-name" id="origin-competition-name" required>
+            </div>
+            <div>
+                <label for="season">Season:</label>
+                <input type="year" name="season" id="season" required>
+            </div>
+            <div>
+                <label for="status">Status:</label>
+                <input type="text" name="status" id="status" required>
+            </div>
+            <div>
+                <label for="time">Time:</label>
+                <input type="time" name="time" id="time" required>
+            </div>
+            <div>
+                <label for="Date">Date:</label>
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div>
+                <label for="home-team">Home team:</label>
+                <input type="text" name="team-name" id="team-name" placeholder="Official Team Name..." required>
+                <input type="text" name="team-name-abbreviation" id="team-name-abbreviation"
+                    placeholder="Team Name Abbreviation..." required>
+                <input type="text" name="team-slug" id="team-slug" placeholder="slug..." required>
+                <input type="text" name="team-country-code" id="team-country-code" placeholder="Team Country Code"
+                    required>
+            </div>
+            <div>
+                <label for="away-team">Away team:</label>
+                <input type="text" name="team-name" id="team-name" placeholder="Official Team Name..." required>
+                <input type="text" name="team-name-abbreviation" id="team-name-abbreviation"
+                    placeholder="Team Name Abbreviation..." required>
+                <input type="text" name="team-slug" id="team-slug" placeholder="slug..." required>
+                <input type="text" name="team-country-code" id="team-country-code" placeholder="Team Country Code"
+                    required>
+            </div>
+            <div>
+                <p>Results:</p>
+                <div>
+                    <label for="home-team">Home team:</label>
+                    <input type="number" name="home-team-goals" id="home-team-goals" placeholder="goals...">
+                    <input type="number" name="home-team-yellowcards" id="home-team-yellowcards"
+                        placeholder="yellow cards...">
+                    <input type="number" name="home-team-second-yellow-cards" id="home-team-second-yellow-cards"
+                        placeholder="Second yellow cards...">
+                    <input type="number" name="home-team-red-cards" id="home-team-red-cards" placeholder="Red cards...">
+                </div>
+                <div>
+                    <label for="away-team-goals">Away team:</label>
+                    <input type="number" name="away-team-goals" id="away-team-goals" placeholder="goals...">
+                    <input type="number" name="away-team-yellowcards" id="away-team-yellowcards"
+                        placeholder="yellow cards...">
+                    <input type="number" name="away-team-second-yellow-cards" id="away-team-second-yellow-cards"
+                        placeholder="Second yellow cards...">
+                    <input type="number" name="away-team-red-cards" id="away-team-red-cards" placeholder="Red cards...">
+                </div>
+            </div>
+            <div>
+                <label for="stage">Stage:</label>
+                <input type="text" name="stage-name" id="stage-name" placeholder="Stage name..." required>
+                <input type="number" name="stage-ordering" id="stage-ordering" placeholder="Stage ordering..." required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+
 
 
     <script type="module" src="main.js"></script>
-    <script type="module" src="templates.js"></script>
 </body>
 
 </html>

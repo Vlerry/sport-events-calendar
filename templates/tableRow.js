@@ -1,7 +1,6 @@
-
-export const createTableRow = ({season, date, event, homeTeam, awayTeam, status }) => {
+export const createTableRow = ({ season, date, event, homeTeam, awayTeam, status, index }) => {
     return `
-    <tr>
+    <tr data-id=${index}>
     <td>${season}</td>
     <td>${date}</td>
     <td>${event}</td>
@@ -18,4 +17,3 @@ export const createTableRow = ({season, date, event, homeTeam, awayTeam, status 
     <td>${status}</td>
 </tr>`
 }
-

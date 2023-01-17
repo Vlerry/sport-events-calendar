@@ -1,44 +1,28 @@
 import sportEventsData from "./data/sportEventsData.json" assert { type: "json" };
-
-import {createTableRow} from './templates.js';
+import { createDetailsModal } from './templates/detailsModal.js';
+import { eventData } from "./utils/templateUtils.js";
 
 const eventsData = sportEventsData.data;
+const tableBody = document.getElementById('tbody');
+const detailsContainer = document.getElementById('details-container');
+const content = document.getElementById('content');
+tableBody.innerHTML = eventData;
 
+const onTableBodyClick = (event) => {
+    const selectedIndex = event.target.closest('tr[data-id]').getAttribute('data-id');
+    const eventModal = createDetailsModal(eventsData[selectedIndex]);
 
+    content.innerHTML = eventModal;
 
+    detailsContainer.classList.add("show");
 
-const eventData = eventsData.map((element) => {
-   const tableRow = createTableRow({
-    date: element.dateVenue, 
-    season: element.season,
-    event: element.originCompetitionName,
-    homeTeam: element.homeTeam?.officialName ?? "-",
-    awayTeam: element.awayTeam.officialName,
-    status: element.status,
-    
-});
-  return tableRow;
-
-
-})
-
-    let tableBody = document.getElementById('tbody');
-    tableBody.innerHTML = eventData;
+    detailsContainer.querySelector(".back-drop").addEventListener("click", () => {
+        detailsContainer.classList.remove("show");
+        content.innerHTML = "";
+    });
     
 
 
-// function renderDataInTheTable(events) {
-//  let tableBody = document.getElementById('tbody');   
-//  events.forEach(event => {
-//     let newRow = document.createElement('tr');
-//     Object.values(event).forEach((value) => {
-//         let cell = document.createElement('td');
-//         cell.innerText = value;
-//         newRow.appendChild(cell);
-//     })
-//     tableBody.appendChild(newRow);
-//  })
-// }
-// renderDataInTheTable(eventData);
+}
 
-// console.log(tableBody);
+tableBody.addEventListener('click', onTableBodyClick);
