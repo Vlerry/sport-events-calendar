@@ -1,6 +1,7 @@
 import sportEventsData from "./data/sportEventsData.json" assert { type: "json" };
 import { createDetailsModal } from './templates/detailsModal.js';
 import { eventData } from "./utils/templateUtils.js";
+import { getInputValues } from "./templates/newEventDialog.js";
 
 const eventsData = sportEventsData.data;
 const tableBody = document.getElementById('tbody');
@@ -26,3 +27,15 @@ const onTableBodyClick = (event) => {
 }
 
 tableBody.addEventListener('click', onTableBodyClick);
+
+// Dialog window
+
+const addEventButton = document.getElementById('add-new-event-btn');
+const addEventDialog = document.getElementById('add-new-event');
+const submitBtn = addEventDialog.querySelector('.submit-btn');
+
+addEventButton.addEventListener('click', () => {
+    addEventDialog.showModal();
+});
+
+submitBtn.addEventListener('click', getInputValues);
