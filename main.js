@@ -1,4 +1,4 @@
-import { eventState } from './state.js';
+import { eventState, addSportEvent } from './state.js';
 import { createDetailsModal } from './templates/detailsModal.js';
 import { tableRowEvents } from "./utils/templateUtils.js";
 import { createTableRow } from './templates/tableRow.js';
@@ -38,17 +38,55 @@ addEventButton.addEventListener('click', () => {
     addEventDialog.showModal();
 });
 
+const mapResultFromSubmitToObject = (elements) => {
+    return {
 
+        season: elements.season.value,
+        status: elements.status.value,
+        timeVenueUTC: elements.timeVenueUTC.value,
+        dateVenue: elements.dateVenue.value,
+        homeTeam: {
+            officialName: elements.homeTeamName.value,
+            slug: elements.homeTeamSlug.value,
+            abbreviation: elements.homeTeamNameAbbreviation.value,
+            teamCountryCode: elements.homeTeamCountryCode.value
+        },
+
+        awayTeam: {
+            officialName: elements.awayTeamName.value,
+            slug: elements.awayTeamSlug.value,
+            abbreviation: elements.awayTeamNameAbbreviation.value,
+            teamCountryCode: elements.awayTeamCountryCode.value
+        },
+        result: {
+            homeGoals: elements.homeTeamGoals.value,
+            awayGoals: elements.awayTeamGoals.value,
+            winner: elements.winner.value,
+            yellowCards: elements.yellowCards.value,
+            secondYellowCards: elements.secondYellowCards.value,
+            directRedCards: elements.directRedCards.value
+        },
+        stage: {
+            name: elements.stageName.value,
+            ordering: elements.stageOrdering.value
+        },
+
+        originCompetitionName: elements.originCompetitionName.value
+    }
+}
 
 const onSubmitNewEvent = (event) => {
-    const { season, date, originCompetitionName, homeTeamName, awayTeamName, status } = event.target.elements
+
+    const newSportDataEvent = mapResultFromSubmitToObject(event.target.elements);
+
+    const { season, dateVenue, originCompetitionName, homeTeam, awayTeam, status } = newSportDataEvent;
     const newSportEventTableRow = createTableRow({
-        season: season.value, date: date.value, event: originCompetitionName.value, homeTeam: homeTeamName.value, awayTeam: awayTeamName.value, status: status.value, index: eventState.length
+        season, dateVenue, originCompetitionName, homeTeam: homeTeam.officialName, awayTeam: awayTeam.officialName, status
     });
 
-    tableBody.appendChild(newSportEventTableRow);
-
+    addSportEvent(newSportDataEvent);
 }
+
 
 // TODO reuse createTableRow to contruct new tr
 
@@ -56,4 +94,7 @@ const onSubmitNewEvent = (event) => {
 
 
 const addEventForm = document.getElementById('add-event-form');
-addEventForm.addEventListener("submit", onSubmitNewEvent);
+addEventForm.addEventListener("submit", () => {
+    onSubmitNewEvent,
+        addEventForm.reset()
+});

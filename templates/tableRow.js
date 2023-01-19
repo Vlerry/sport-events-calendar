@@ -1,7 +1,7 @@
 const createEl = (element) => document.createElement(element);
 
 
-export const createTableRow = ({ season, date, event, homeTeam, awayTeam, status, index }) => {
+export const createTableRow = ({ season, dateVenue, originCompetitionName, homeTeam, awayTeam, status, index }) => {
 
     const tr = createEl("tr");
     tr.setAttribute("data-id", index);
@@ -10,10 +10,10 @@ export const createTableRow = ({ season, date, event, homeTeam, awayTeam, status
     tdSeason.innerText = season;
 
     const tdDate = createEl("td");
-    tdDate.innerText = date;
+    tdDate.innerText = dateVenue;
 
     const tdEvent = createEl("td");
-    tdEvent.innerText = event;
+    tdEvent.innerText = originCompetitionName;
 
 
     const tdTeams = createEl("td");
