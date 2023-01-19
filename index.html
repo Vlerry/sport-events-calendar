@@ -49,12 +49,12 @@
         <h2>Add a new event:</h2>
         <form action="" id="add-event-form" method="dialog" >
             <div>
-                <label for="origin-competition-name">Competition Name:</label>
-                <input type="text" name="origin-competition-name" id="origin-competition-name" required>
+                <label for="originCompetitionName">Competition Name:</label>
+                <input type="text" name="originCompetitionName" id="originCompetitionName" required>
             </div>
             <div>
                 <label for="season">Season:</label>
-                <input type="year" name="season" id="season" required>
+                <input type="year" name="season" id="season" >
             </div>
             <div>
                 <label for="status">Status:</label>
@@ -69,48 +69,48 @@
                 <input type="date" name="date" id="date" >
             </div>
             <div>
-                <label for="home-team">Home team:</label>
-                <input type="text" name="-home-team-name" id="home-team-name" placeholder="Official Team Name..." >
-                <input type="text" name="home-team-name-abbreviation" id="home-team-name-abbreviation"
+                <label for="homeTeam">Home team:</label>
+                <input type="text" name="homeTeamName" id="homeTeamName" placeholder="Official Team Name..." >
+                <input type="text" name="homeTeamNameAbbreviation" id="homeTeamNameAbbreviation"
                     placeholder="Team Name Abbreviation..." >
-                <input type="text" name="home-team-slug" id="home-team-slug" placeholder="slug...">
-                <input type="text" name="home-team-country-code" id="home-team-country-code" placeholder="Team Country Code"
-                    required>
+                <input type="text" name="homeTeamSlug" id="homeTeamSlug" placeholder="slug...">
+                <input type="text" name="homeTeamCountryCode" id="homeTeamCountryCode" placeholder="Team Country Code"
+                    >
             </div>
             <div>
-                <label for="away-team">Away team:</label>
-                <input type="text" name="away-team-name" id="away-team-name" placeholder="Official Team Name..." >
-                <input type="text" name="away-team-name-abbreviation" id="away-team-name-abbreviation"
+                <label for="awayTeam">Away team:</label>
+                <input type="text" name="awayTeamName" id="awayTeamName" placeholder="Official Team Name..." >
+                <input type="text" name="awayTeamNameAbbreviation" id="awayTeamNameAbbreviation"
                     placeholder="Team Name Abbreviation..." >
-                <input type="text" name="away-team-slug" id="away-team-slug" placeholder="slug..." >
-                <input type="text" name="away-team-country-code" id="away-team-country-code" placeholder="Team Country Code"
-                    required>
+                <input type="text" name="awayTeamSlug" id="awayTeamSlug" placeholder="slug..." >
+                <input type="text" name="awayTeamCountryCode" id="awayTeamCountryCode" placeholder="Team Country Code"
+                    >
             </div>
             <div>
                 <p>Results:</p>
                 <div>
-                    <label for="home-team">Home team:</label>
-                    <input type="number" name="home-team-goals" id="home-team-goals" placeholder="goals...">
-                    <input type="number" name="home-team-yellowcards" id="home-team-yellowcards"
+                    <label for="homeTeamGoals">Home team:</label>
+                    <input type="number" name="homeTeamGoals" id="homeTeamGoals" placeholder="goals...">
+                    <input type="number" name="homeTeamYellowcards" id="homeTeamYellowcards"
                         placeholder="yellow cards...">
-                    <input type="number" name="home-team-second-yellow-cards" id="home-team-second-yellow-cards"
+                    <input type="number" name="homeTeamSecondYellowCards" id="homeTeamSecondYellowCards"
                         placeholder="Second yellow cards...">
-                    <input type="number" name="home-team-red-cards" id="home-team-red-cards" placeholder="Red cards...">
+                    <input type="number" name="homeTeamRedCards" id="homeTeamRedCards" placeholder="Red cards...">
                 </div>
                 <div>
-                    <label for="away-team-goals">Away team:</label>
-                    <input type="number" name="away-team-goals" id="away-team-goals" placeholder="goals...">
-                    <input type="number" name="away-team-yellowcards" id="away-team-yellowcards"
+                    <label for="awayTeamGoals">Away team:</label>
+                    <input type="number" name="awayTeamGoals" id="awayTeamGoals" placeholder="goals...">
+                    <input type="number" name="awayTeamYellowCards" id="awayTeamYellowCards"
                         placeholder="yellow cards...">
-                    <input type="number" name="away-team-second-yellow-cards" id="away-team-second-yellow-cards"
+                    <input type="number" name="awayTeamSecondYellowCards" id="awayTeamSecondYellowCards"
                         placeholder="Second yellow cards...">
-                    <input type="number" name="away-team-red-cards" id="away-team-red-cards" placeholder="Red cards...">
+                    <input type="number" name="awayTeamRedCards" id="awayTeamRedCards" placeholder="Red cards...">
                 </div>
             </div>
             <div>
                 <label for="stage">Stage:</label>
-                <input type="text" name="stage-name" id="stage-name" placeholder="Stage name..." >
-                <input type="number" name="stage-ordering" id="stage-ordering" placeholder="Stage ordering..." >
+                <input type="text" name="stageName" id="stageName" placeholder="Stage name..." >
+                <input type="number" name="stageOrdering" id="stageOrdering" placeholder="Stage ordering..." >
             </div>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
