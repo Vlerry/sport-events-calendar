@@ -1,11 +1,18 @@
 import { eventState, addSportEvent } from "./state.js";
 import { createDetailsModal } from "./templates/detailsModal.js";
-import { tableRowEvents } from "./utils/templateUtils.js";
+import { tableRowEvents, mapResultFromSubmitToObject } from "./utils/templateUtils.js";
 import { createTableRow } from "./templates/tableRow.js";
+
 
 const tableBody = document.getElementById("tbody");
 const detailsContainer = document.getElementById("details-container");
 const content = document.getElementById("content");
+
+const addEventButton = document.getElementById("add-new-event-btn");
+const addEventDialog = document.getElementById("add-new-event");
+
+const addEventForm = document.getElementById("add-event-form");
+
 
 tableBody.append(...tableRowEvents);
 
@@ -28,51 +35,10 @@ const onTableBodyClick = (event) => {
 tableBody.addEventListener("click", onTableBodyClick);
 
 // Dialog window
-
-const addEventButton = document.getElementById("add-new-event-btn");
-const addEventDialog = document.getElementById("add-new-event");
-
 addEventButton.addEventListener("click", () => {
   addEventDialog.showModal();
 });
 
-const mapResultFromSubmitToObject = (elements) => {
-  return {
-    season: elements.season.value,
-    status: elements.status.value,
-    timeVenueUTC: elements.timeVenueUTC.value,
-    dateVenue: elements.dateVenue.value,
-    homeTeam: {
-      officialName: elements.homeTeamName.value,
-      slug: elements.homeTeamSlug.value,
-      abbreviation: elements.homeTeamNameAbbreviation.value,
-      teamCountryCode: elements.homeTeamCountryCode.value,
-    },
-
-    awayTeam: {
-      officialName: elements.awayTeamName.value,
-      slug: elements.awayTeamSlug.value,
-      abbreviation: elements.awayTeamNameAbbreviation.value,
-      teamCountryCode: elements.awayTeamCountryCode.value,
-    },
-    result: {
-      homeGoals: elements.homeTeamGoals.value,
-      awayGoals: elements.awayTeamGoals.value,
-      winner: elements.winner.value,
-      yellowCards: elements.yellowCards.value,
-      secondYellowCards: elements.secondYellowCards.value,
-      directRedCards: elements.directRedCards.value,
-    },
-    stage: {
-      name: elements.stageName.value,
-      ordering: elements.stageOrdering.value,
-    },
-
-    originCompetitionName: elements.originCompetitionName.value,
-  };
-};
-
-const addEventForm = document.getElementById("add-event-form");
 addEventForm.addEventListener("submit", onSubmitNewEvent);
 
 function onSubmitNewEvent(event) {
@@ -96,11 +62,8 @@ function onSubmitNewEvent(event) {
     index: eventState.length,
   });
 
-  console.log(newSportEventTableRow, "newSportEventTableRow");
 
   tableBody.appendChild(newSportEventTableRow);
-
   addSportEvent(newSportDataEvent);
-
   addEventForm.reset();
 }
