@@ -1,126 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <title>Sports events calendar</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-
-<body>
-    <nav class="navbar">
-
+  <body>
+    <header>
+      <div class="container ">
+      <nav class="navbar">
         <ul class="nav-links">
-            <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-            <div class="menu">
-                <li><a href="#table-container">All Events</a></li>
-                <li><a href="#add-new-event" id="add-new-event-btn">Add a new Event</a></li>
-            </div>
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <div class="menu">
+            <li>
+              <button class="btn btnPrimary" id="add-new-event-btn"
+                >Add a new Event</button
+              >
+            </li>
+          </div>
         </ul>
-    </nav>
-
-
-    <div id="table-container">
-        <table class="events-table" id="table">
-            <thead>
+      </nav>
+    </div>
+    </div>
+  </header>
+    <main>
+      <div class="container ct-space">
+        <div class="card">
+          <div class="card-body" id="table-container">
+            <table class="events-table" id="table">
+              <thead>
                 <tr>
-                    <th>Season</th>
-                    <th>Date</th>
-                    <th>Event</th>
-                    <th>Teams</th>
-                    <th>Status</th>
+                  <th>Season</th>
+                  <th>Date</th>
+                  <th>Event</th>
+                  <th>Teams</th>
+                  <th>Status</th>
                 </tr>
-            </thead>
-            <tbody id="tbody">
-            </tbody>
-        </table>
-    </div>
-    <div id="details-container">
-        <div class="back-drop"> </div>
-        <div id="content"></div>
-    </div>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    <div id="details-container">
+      <div class="back-drop"></div>
+
+      <div id="content"></div>
+    </div>
 
     <dialog id="add-new-event">
-
-        <h2>Add a new event:</h2>
-        <form action="" id="add-event-form" method="dialog">
-            <div>
-                <label for="originCompetitionName">Competition Name:</label>
-                <input type="text" name="originCompetitionName" id="originCompetitionName" required>
-            </div>
-            <div>
-                <label for="season">Season:</label>
-                <input type="number" name="season" id="season" min="2022" max="2100">
-            </div>
-            <div>
-                <label for="status">Status:</label>
-                <input type="text" name="status" id="status">
-            </div>
-            <div>
-                <label for="timeVenueUTC">Time:</label>
-                <input type="time" name="timeVenueUTC" id="timeVenueUTC">
-            </div>
-            <div>
-                <label for="dateVenue">Date:</label>
-                <input type="date" name="dateVenue " id="dateVenue">
-            </div>
-            <div>
-                <label for="homeTeam">Home team:</label>
-                <input type="text" name="homeTeamName" id="homeTeamName" placeholder="Official Team Name...">
-                <input type="text" name="homeTeamNameAbbreviation" id="homeTeamNameAbbreviation"
-                    placeholder="Team Name Abbreviation...">
-                <input type="text" name="homeTeamSlug" id="homeTeamSlug" placeholder="slug...">
-                <input type="text" name="homeTeamCountryCode" id="homeTeamCountryCode" placeholder="Team Country Code">
-            </div>
-            <div>
-                <label for="awayTeam">Away team:</label>
-                <input type="text" name="awayTeamName" id="awayTeamName" placeholder="Official Team Name...">
-                <input type="text" name="awayTeamNameAbbreviation" id="awayTeamNameAbbreviation"
-                    placeholder="Team Name Abbreviation...">
-                <input type="text" name="awayTeamSlug" id="awayTeamSlug" placeholder="slug...">
-                <input type="text" name="awayTeamCountryCode" id="awayTeamCountryCode" placeholder="Team Country Code">
-            </div>
-            <div>
-                <p>Results:</p>
-                <div>
-                    <label for="homeTeamGoals">Home team:</label>
-                    <input type="number" name="homeTeamGoals" id="homeTeamGoals" placeholder="goals..." min="0">
-                </div>
-                <div>
-                    <label for="awayTeamGoals">Away team:</label>
-                    <input type="number" name="awayTeamGoals" id="awayTeamGoals" placeholder="goals..." min="0">
-
-                </div>
-                <label for="winner">Winner:</label>
-                <input type="text" name="winner" id="winner" placeholder="The winner is...">
-                <label for="yellowCards">Yellow Cards:</label>
-                <input type="number" name="yellowCards" id="yellowCards" placeholder="yellow cards..." min="0">
-                <label for="secondYellowCards">Second Yellow Cards:</label>
-                <input type="number" name="secondYellowCards" id="secondYellowCards"
-                    placeholder="Second yellow cards..." min="0">
-                <label for="directRedCards">Direct Red Cards:</label>
-                <input type="number" name="directRedCards" id="directRedCards" placeholder="Red cards..." min="0">
-
-
-            </div>
-            <div>
-                <label for="stage">Stage:</label>
-                <input type="text" name="stageName" id="stageName" placeholder="Stage name...">
-                <input type="number" name="stageOrdering" id="stageOrdering" placeholder="Stage ordering..." min="1">
-            </div>
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+      <h2>Add a new event:</h2>
+      <form action="" id="add-event-form" method="dialog">
+        <div>
+          <label for="originCompetitionName">Competition Name:</label>
+          <input
+            type="text"
+            name="originCompetitionName"
+            id="originCompetitionName"
+            required
+          />
+        </div>
+        <div>
+          <label for="season">Season:</label>
+          <input
+            type="number"
+            name="season"
+            id="season"
+            min="2022"
+            max="2100"
+          />
+        </div>
+        <div>
+          <label for="status">Status:</label>
+          <input type="text" name="status" id="status" />
+        </div>
+        <div>
+          <label for="timeVenueUTC">Time:</label>
+          <input type="time" name="timeVenueUTC" id="timeVenueUTC" />
+        </div>
+        <div>
+          <label for="dateVenue">Date:</label>
+          <input type="date" name="dateVenue " id="dateVenue" />
+        </div>
+        <div>
+          <label for="homeTeam">Home team:</label>
+          <input
+            type="text"
+            name="homeTeamName"
+            id="homeTeamName"
+            placeholder="Official Team Name..."
+          />
+          <input
+            type="text"
+            name="homeTeamNameAbbreviation"
+            id="homeTeamNameAbbreviation"
+            placeholder="Team Name Abbreviation..."
+          />
+          <input
+            type="text"
+            name="homeTeamSlug"
+            id="homeTeamSlug"
+            placeholder="slug..."
+          />
+          <input
+            type="text"
+            name="homeTeamCountryCode"
+            id="homeTeamCountryCode"
+            placeholder="Team Country Code"
+          />
+        </div>
+        <div>
+          <label for="awayTeam">Away team:</label>
+          <input
+            type="text"
+            name="awayTeamName"
+            id="awayTeamName"
+            placeholder="Official Team Name..."
+          />
+          <input
+            type="text"
+            name="awayTeamNameAbbreviation"
+            id="awayTeamNameAbbreviation"
+            placeholder="Team Name Abbreviation..."
+          />
+          <input
+            type="text"
+            name="awayTeamSlug"
+            id="awayTeamSlug"
+            placeholder="slug..."
+          />
+          <input
+            type="text"
+            name="awayTeamCountryCode"
+            id="awayTeamCountryCode"
+            placeholder="Team Country Code"
+          />
+        </div>
+        <div>
+          <p>Results:</p>
+          <div>
+            <label for="homeTeamGoals">Home team:</label>
+            <input
+              type="number"
+              name="homeTeamGoals"
+              id="homeTeamGoals"
+              placeholder="goals..."
+              min="0"
+            />
+          </div>
+          <div>
+            <label for="awayTeamGoals">Away team:</label>
+            <input
+              type="number"
+              name="awayTeamGoals"
+              id="awayTeamGoals"
+              placeholder="goals..."
+              min="0"
+            />
+          </div>
+          <label for="winner">Winner:</label>
+          <input
+            type="text"
+            name="winner"
+            id="winner"
+            placeholder="The winner is..."
+          />
+          <label for="yellowCards">Yellow Cards:</label>
+          <input
+            type="number"
+            name="yellowCards"
+            id="yellowCards"
+            placeholder="yellow cards..."
+            min="0"
+          />
+          <label for="secondYellowCards">Second Yellow Cards:</label>
+          <input
+            type="number"
+            name="secondYellowCards"
+            id="secondYellowCards"
+            placeholder="Second yellow cards..."
+            min="0"
+          />
+          <label for="directRedCards">Direct Red Cards:</label>
+          <input
+            type="number"
+            name="directRedCards"
+            id="directRedCards"
+            placeholder="Red cards..."
+            min="0"
+          />
+        </div>
+        <div>
+          <label for="stage">Stage:</label>
+          <input
+            type="text"
+            name="stageName"
+            id="stageName"
+            placeholder="Stage name..."
+          />
+          <input
+            type="number"
+            name="stageOrdering"
+            id="stageOrdering"
+            placeholder="Stage ordering..."
+            min="1"
+          />
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </dialog>
 
-
-
-
-
     <script type="module" src="main.js"></script>
-</body>
-
+  </body>
 </html>
