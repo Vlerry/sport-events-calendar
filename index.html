@@ -49,11 +49,28 @@
 
   <div id="details-container">
     <div class="back-drop"></div>
+    <div class="modal">
+      <button class="close-btn">
+        <svg viewBox="0 0 24 24" focusable="false" class="close-icon" aria-hidden="true">
+          <path fill="currentColor"
+            d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z">
+          </path>
+        </svg>
+      </button>
+      <div id="content">
+      </div>
+    </div>
 
-    <div id="content"></div>
   </div>
 
   <dialog id="add-new-event">
+    <button class="close-btn">
+      <svg viewBox="0 0 24 24" focusable="false" class="close-icon" aria-hidden="true">
+        <path fill="currentColor"
+          d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z">
+        </path>
+      </svg>
+    </button>
     <h2>Add a new event:</h2>
     <form action="" id="add-event-form" method="dialog">
       <div>
@@ -62,12 +79,21 @@
       </div>
       <div>
         <label for="season">Season:</label>
-        <input type="number" name="season" id="season" min="2022" max="2100" />
+        <input type="number" name="season" id="season" min="2022" max="2100" value="2023"/>
       </div>
-      <div>
-        <label for="status">Status:</label>
-        <input type="text" name="status" id="status" />
-      </div>
+        <fieldset class="game-status" >
+          <legend>Game status:</legend>
+
+            <input type="radio" id="scheduled" name="game-staus" value="scheduled" checked="checked" />
+            <label for="scheduled">Scheduled</label>
+      
+            <input type="radio" id="played" name="game-staus" value="played" />
+            <label for="played">Played</label>
+      
+         
+            <input type="radio" id="canceled" name="game-staus" value="canceled" />
+            <label for="canceled">Canceled</label>
+        </fieldset>
       <div>
         <label for="timeVenueUTC">Time:</label>
         <input type="time" name="timeVenueUTC" id="timeVenueUTC" />
@@ -92,6 +118,7 @@
         <input type="text" name="awayTeamSlug" id="awayTeamSlug" placeholder="slug..." />
         <input type="text" name="awayTeamCountryCode" id="awayTeamCountryCode" placeholder="Team Country Code" />
       </div>
+      <hr>
       <div>
         <p>Results:</p>
         <div>
@@ -117,7 +144,7 @@
         <input type="text" name="stageName" id="stageName" placeholder="Stage name..." />
         <input type="number" name="stageOrdering" id="stageOrdering" placeholder="Stage ordering..." min="1" />
       </div>
-      <button type="submit" class="submit-btn">Submit</button>
+      <button type="submit" class="btn btnSecondary submit-btn">Submit</button>
     </form>
   </dialog>
 
