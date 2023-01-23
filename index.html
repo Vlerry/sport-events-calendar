@@ -73,54 +73,68 @@
     </button>
     <h2>Add a new event:</h2>
     <form action="" id="add-event-form" method="dialog">
-      <div>
-        <label for="originCompetitionName">Competition Name:</label>
-        <input type="text" name="originCompetitionName" id="originCompetitionName" required />
-      </div>
-      <div>
-        <label for="season">Season:</label>
-        <input type="number" name="season" id="season" min="2022" max="2100" value="2023"/>
-      </div>
-        <fieldset class="game-status" >
-          <legend>Game status:</legend>
 
-            <input type="radio" id="scheduled" name="game-staus" value="scheduled" checked="checked" />
+      <div class="form-first-section">
+        <div>
+          <div>
+            <label for="originCompetitionName">Competition Name:</label>
+            <input type="text" name="originCompetitionName" id="originCompetitionName" required />
+          </div>
+          <div>
+            <label for="season">Season:</label>
+            <input type="number" name="season" id="season" min="2022" max="2100" value="2023" required />
+          </div>
+          <fieldset class="game-status">
+            <legend>Game status:</legend>
+
+            <input type="radio" id="scheduled" name="game-status" value="scheduled" checked="checked" />
             <label for="scheduled">Scheduled</label>
-      
-            <input type="radio" id="played" name="game-staus" value="played" />
+
+            <input type="radio" id="played" name="game-status" value="played" />
             <label for="played">Played</label>
-      
-         
-            <input type="radio" id="canceled" name="game-staus" value="canceled" />
+
+
+            <input type="radio" id="canceled" name="game-status" value="canceled" />
             <label for="canceled">Canceled</label>
-        </fieldset>
-      <div>
-        <label for="timeVenueUTC">Time:</label>
-        <input type="time" name="timeVenueUTC" id="timeVenueUTC" />
-      </div>
-      <div>
-        <label for="dateVenue">Date:</label>
-        <input type="date" name="dateVenue " id="dateVenue" />
-      </div>
-      <div>
-        <label for="homeTeam">Home team:</label>
-        <input type="text" name="homeTeamName" id="homeTeamName" placeholder="Official Team Name..." />
-        <input type="text" name="homeTeamNameAbbreviation" id="homeTeamNameAbbreviation"
-          placeholder="Team Name Abbreviation..." />
-        <input type="text" name="homeTeamSlug" id="homeTeamSlug" placeholder="slug..." />
-        <input type="text" name="homeTeamCountryCode" id="homeTeamCountryCode" placeholder="Team Country Code" />
-      </div>
-      <div>
-        <label for="awayTeam">Away team:</label>
-        <input type="text" name="awayTeamName" id="awayTeamName" placeholder="Official Team Name..." />
-        <input type="text" name="awayTeamNameAbbreviation" id="awayTeamNameAbbreviation"
-          placeholder="Team Name Abbreviation..." />
-        <input type="text" name="awayTeamSlug" id="awayTeamSlug" placeholder="slug..." />
-        <input type="text" name="awayTeamCountryCode" id="awayTeamCountryCode" placeholder="Team Country Code" />
+          </fieldset>
+          <div>
+            <label for="timeVenueUTC">Time:</label>
+            <input type="time" name="timeVenueUTC" id="timeVenueUTC" required />
+          </div>
+          <div>
+            <label for="dateVenue">Date:</label>
+            <input type="date" name="dateVenue " id="dateVenue" required />
+          </div>
+        </div>
+        <hr>
+        <div class="teams">
+          <div class="teams-column ">
+            <label for="homeTeam">Home team:</label>
+            <input type="text" name="homeTeamName" id="homeTeamName" placeholder="Official Team Name..." />
+            <label for="homeTeam">Team name abbreviation:</label>
+            <input type="text" name="homeTeamNameAbbreviation" id="homeTeamNameAbbreviation"
+              placeholder="Team Name Abbreviation..." />
+            <label for="homeTeam">Team slug:</label>
+            <input type="text" name="homeTeamSlug" id="homeTeamSlug" placeholder="slug..." />
+            <label for="homeTeam">Team Country Code:</label>
+            <input type="text" name="homeTeamCountryCode" id="homeTeamCountryCode" placeholder="Team Country Code" />
+          </div>
+          <div class="teams-column">
+            <label for="awayTeam">Away team:</label>
+            <input type="text" name="awayTeamName" id="awayTeamName" placeholder="Official Team Name..." />
+            <label for="homeTeam">Team name abbreviation:</label>
+            <input type="text" name="awayTeamNameAbbreviation" id="awayTeamNameAbbreviation"
+              placeholder="Team Name Abbreviation..." />
+            <label for="homeTeam">Team slug:</label>
+            <input type="text" name="awayTeamSlug" id="awayTeamSlug" placeholder="slug..." />
+            <label for="homeTeam">Team Country Code:</label>
+            <input type="text" name="awayTeamCountryCode" id="awayTeamCountryCode" placeholder="Team Country Code" />
+          </div>
+        </div>
       </div>
       <hr>
-      <div>
-        <p>Results:</p>
+      <div class="results">
+        <h3>Results:</h3>
         <div>
           <label for="homeTeamGoals">Home team:</label>
           <input type="number" name="homeTeamGoals" id="homeTeamGoals" placeholder="goals..." min="0" />

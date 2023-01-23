@@ -1,8 +1,8 @@
 import sportEventsData from "../data/sportEventsData.json" assert { type: "json" };
 
- export const eventState = [...sportEventsData.data];
+export const eventState = [...sportEventsData.data];
 
- export const addSportEvent = (sportEvent) => {
+export const addSportEvent = (sportEvent) => {
     eventState.push(sportEvent)
 }
 

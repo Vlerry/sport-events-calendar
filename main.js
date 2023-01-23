@@ -19,7 +19,7 @@ tableBody.append(...tableRowEvents);
 
 const closeModal = () => {
   detailsContainer.classList.remove("show");
-  content.innerHTML = "";
+
 };
 
 const onTableBodyClick = (event) => {
